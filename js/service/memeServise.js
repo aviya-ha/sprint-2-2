@@ -16,3 +16,7 @@ var gMeme = {
 function getMeme(){
 return gMeme
 }
+
+function changeTxt(input){
+    gMeme.lines[0].txt = input
+}

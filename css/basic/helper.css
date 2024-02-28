@@ -16,6 +16,8 @@
   .grid {
     display: grid;
   }
+
+
   
   .border-inline {
     border-inline: 1px solid var(--primary-2-5);

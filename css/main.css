@@ -1,5 +1,5 @@
 /* //basic// */
-/* @import url(basic/base.css); */
+@import url(basic/base.css);
 @import url(basic/helper.css);
 @import url(basic/layout.css);
 
@@ -7,6 +7,7 @@
 /* //component// */
 @import url(component/header.css);
 @import url(component/main-meme-content.css);
+@import url(component/main-image-content.css);
 /* @import url(component/page-nav.css); */
 /* @import url(component/footer.css); */
 
@@ -14,5 +15,5 @@
 /* ///setup// */
 /* @import url(setup/mq.css); */
 /* @import url(setup/typography.css); */
-/* @import url(setup/vars.css); */
+@import url(setup/vars.css);
 

@@ -1,3 +1,27 @@
 .main-header{
-    background-color: rgb(186, 23, 50);
+    background-color:var(--primary2-base);
+    grid-column: 1 / -1;
+    grid-row: 1 ;
+    grid-template-columns:200px 1fr;
+}
+
+.main-nav-links {
+    justify-content: space-between;   
+}
+.main-nav-links li {
+    height: 100%;  
+}
+
+.main-nav-links .links{
+    font-size: 40px;
+    padding: 30px;    
+}
+
+.main-nav-links .links:hover{
+    color: green;
+}
+
+.logo{
+    padding:10px;
+    font-size: 60px;
 }

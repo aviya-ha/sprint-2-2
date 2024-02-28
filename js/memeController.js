@@ -38,3 +38,8 @@ function drawText(text, x, y) {
 	gCtx.strokeText(text, x, y)
 }
 
+function onChangeTxt(input){
+    changeTxt(input)
+    renderMeme()
+}
+
