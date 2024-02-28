@@ -33,6 +33,8 @@ function setImg(imgId){
     gMeme.selectedImgId = imgId
     gMeme.selectedLineIdx = 0 
     gMeme.lines[gMeme.selectedLineIdx].size = 40  
+    gMeme.lines[1].isAdded = false  
+    gMeme.lines[1].isChosen = false  
 }
 
 function changeColor(input){
@@ -54,5 +56,11 @@ function addLine(){
 function switchLine(){
     if (gMeme.selectedLineIdx === 0){
         gMeme.selectedLineIdx = 1
-    } else {gMeme.selectedLineIdx = 0}
+        gMeme.lines[0].isChosen = false
+        gMeme.lines[1].isChosen = true
+    } else {
+        gMeme.selectedLineIdx = 0
+        gMeme.lines[0].isChosen = true
+        gMeme.lines[1].isChosen = false
+    }
 }

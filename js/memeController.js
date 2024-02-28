@@ -15,12 +15,31 @@ function renderMeme() {
     elImg.onload = () =>{
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         meme.lines.map(line => {
-            if(line.isAdded) drawText(line, 250, 50)} ) 
+            if(line.isAdded && !line.isChosen) drawText(line, 100, 50) 
+            if(line.isAdded && line.isChosen) editText(line, 250, 50)} ) 
     }
 }
 
 function drawText(line, x, y) {
+    const txt = line.txt
+    const color = line.color
+    const size = line.size
     
+    gCtx.lineWidth = 2
+    
+	gCtx.strokeStyle = color
+	gCtx.fillStyle = color
+    
+	gCtx.font = `${size}px Arial`
+    
+	gCtx.textAlign = 'center'
+	gCtx.textBaseline = 'middle'
+    
+    gCtx.fillText(txt, x, y)
+	gCtx.strokeText(txt, x, y)
+}
+
+function editText(line, x, y){
     const txt = line.txt
     const color = line.color
     const size = line.size
@@ -66,5 +85,15 @@ function onDecreaseFont(){
 
 function onAddLine(){
     addLine()
+    onSwitchLine()
     renderMeme()
 }
+
+function onSwitchLine(){
+    switchLine()
+    const meme = getMeme()
+    const lestText = meme.lines[meme.selectedLineIdx].txt
+    const elTextValue = document.getElementById('txt').value = lestText
+    renderMeme()
+}
+
