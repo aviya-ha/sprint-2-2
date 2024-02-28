@@ -1,0 +1,13 @@
+
+.main-meme-content{
+    background-color: rgb(117, 160, 170);
+}
+
+.canvas-container{
+    /* background-color: yellow; */
+    width: fit-content;
+}
+
+canvas{
+    border: 5px solid red;
+}

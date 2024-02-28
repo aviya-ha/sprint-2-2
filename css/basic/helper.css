@@ -1,0 +1,28 @@
+.flex {
+    display: flex;
+  }
+  
+  .flex.space-between {
+    justify-content: space-between;
+  }
+  
+  .flex.align-center {
+    align-items: center;
+  }
+  .flex.justify-center {
+    justify-items: center;
+  }
+  
+  .grid {
+    display: grid;
+  }
+  
+  .border-inline {
+    border-inline: 1px solid var(--primary-2-5);
+  }
+
+.clean-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
