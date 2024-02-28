@@ -1,4 +1,4 @@
-'us strict'
+'use strict'
 
 var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] }]
 
@@ -8,9 +8,7 @@ const gCtx = gElCanvas.getContext('2d')
 
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
-function onInit(){
-    renderMeme()
-}
+
 
 function renderMeme() {
     var meme = getMeme()

@@ -1,4 +1,9 @@
 
 .main-image-content{
-    display: none;
+    /* display: none; */
+    display: flex;
+    background-color: rgb(255, 240, 253);
+    grid-column: 1/-1;
+    flex-wrap: wrap;
+    
 }
