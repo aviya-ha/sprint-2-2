@@ -18,24 +18,28 @@ function renderMeme() {
     elImg.src = `img/${meme.selectedImgId}.jpg`
     elImg.onload = () =>{
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        drawText(meme.lines[meme.selectedLineIdx].txt, 250, 250)
+        drawText(meme, 250, 250, )
     }
 }
 
 
-function drawText(text, x, y) {
+function drawText(meme, x, y) {
     
+    const txt = meme.lines[meme.selectedLineIdx].txt
+    const color = meme.lines[meme.selectedLineIdx].color
+
     gCtx.lineWidth = 2
-	gCtx.strokeStyle = 'orange'
+    
+	gCtx.strokeStyle = color
+	gCtx.fillStyle = color
 
 	gCtx.font = '45px Arial'
-	gCtx.fillStyle = 'lightsteelblue'
 
 	gCtx.textAlign = 'center'
 	gCtx.textBaseline = 'middle'
 
-    gCtx.fillText(text, x, y)
-	gCtx.strokeText(text, x, y)
+    gCtx.fillText(txt, x, y)
+	gCtx.strokeText(txt, x, y)
 }
 
 function onChangeTxt(input){
@@ -43,3 +47,13 @@ function onChangeTxt(input){
     renderMeme()
 }
 
+
+function downloadImg(elLink) {
+    const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
+    elLink.href = imgContent
+}
+
+function onChangeColor(color){
+    changeColor(color)
+    renderMeme()
+}

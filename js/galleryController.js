@@ -30,3 +30,4 @@ const elImageContainer = document.querySelector('.main-image-content')
 elImageContainer.style.display = 'none'
 renderMeme()
 }
+
