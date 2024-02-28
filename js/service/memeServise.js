@@ -20,3 +20,8 @@ return gMeme
 function changeTxt(input){
     gMeme.lines[0].txt = input
 }
+
+function setImg(imgId){
+    gMeme.selectedImgId = imgId
+    gMeme.selectedLineIdx = 0   
+}
