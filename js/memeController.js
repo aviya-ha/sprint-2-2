@@ -18,7 +18,7 @@ function renderMeme() {
     elImg.src = `img/${meme.selectedImgId}.jpg`
     elImg.onload = () =>{
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        drawText(meme, 250, 250, )
+        drawText(meme, 250, 250 )
     }
 }
 
@@ -27,13 +27,14 @@ function drawText(meme, x, y) {
     
     const txt = meme.lines[meme.selectedLineIdx].txt
     const color = meme.lines[meme.selectedLineIdx].color
+    const size = meme.lines[meme.selectedLineIdx].size
 
     gCtx.lineWidth = 2
-    
+
 	gCtx.strokeStyle = color
 	gCtx.fillStyle = color
 
-	gCtx.font = '45px Arial'
+	gCtx.font = `${size}px Arial`
 
 	gCtx.textAlign = 'center'
 	gCtx.textBaseline = 'middle'
@@ -55,5 +56,15 @@ function downloadImg(elLink) {
 
 function onChangeColor(color){
     changeColor(color)
+    renderMeme()
+}
+
+function onIncreaseFont(){
+    increaseFont()
+    renderMeme()
+}
+
+function onDecreaseFont(){
+    decreaseFont()
     renderMeme()
 }
