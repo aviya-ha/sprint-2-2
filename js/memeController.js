@@ -1,17 +1,7 @@
 'us strict'
 
 var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] }]
-var gMeme = {
-    selectedImgId: 5,
-    selectedLineIdx: 0,
-    lines: [
-        {
-            txt: 'I sometimes eat Falafel',
-            size: 20,
-            color: 'red'
-        }
-    ]
-}
+
 
 const gElCanvas = document.querySelector('canvas')
 const gCtx = gElCanvas.getContext('2d')
@@ -19,15 +9,16 @@ const gCtx = gElCanvas.getContext('2d')
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
 function onInit(){
-    renderMeme(gImgs)
+    renderMeme()
 }
 
-function renderMeme([{ url }]) {
+function renderMeme() {
+    var meme = getMeme()
     const elImg = new Image()
-    elImg.src = url
+    elImg.src = `img/${meme.selectedImgId}.jpg`
     elImg.onload = () =>{
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        drawText('hay', 250, 250)
+        drawText(meme.lines[meme.selectedLineIdx].txt, 250, 250)
     }
 }
 
