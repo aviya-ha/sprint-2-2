@@ -1,13 +1,9 @@
 'use strict'
 
-var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] }]
-
-
 const gElCanvas = document.querySelector('canvas')
 const gCtx = gElCanvas.getContext('2d')
 
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
-
 
 
 function renderMeme() {
@@ -18,16 +14,16 @@ function renderMeme() {
     elImg.src = `img/${meme.selectedImgId}.jpg`
     elImg.onload = () =>{
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        drawText(meme, 250, 250 )
+        meme.lines.map(line => {
+            if(line.isAdded) drawText(line, 250, 50)} ) 
     }
 }
 
-
-function drawText(meme, x, y) {
+function drawText(line, x, y) {
     
-    const txt = meme.lines[meme.selectedLineIdx].txt
-    const color = meme.lines[meme.selectedLineIdx].color
-    const size = meme.lines[meme.selectedLineIdx].size
+    const txt = line.txt
+    const color = line.color
+    const size = line.size
 
     gCtx.lineWidth = 2
 
@@ -48,7 +44,6 @@ function onChangeTxt(input){
     renderMeme()
 }
 
-
 function downloadImg(elLink) {
     const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
     elLink.href = imgContent
@@ -66,5 +61,10 @@ function onIncreaseFont(){
 
 function onDecreaseFont(){
     decreaseFont()
+    renderMeme()
+}
+
+function onAddLine(){
+    addLine()
     renderMeme()
 }

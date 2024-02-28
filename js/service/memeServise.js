@@ -7,16 +7,19 @@ var gMeme = {
         {
             txt: 'I sometimes eat Falafel',
             size: 20,
-            color: '#ffffff'
+            color: '#ffffff',
+            isAdded: true,
+            isChosen: true
         },
         {
             txt: 'hello world',
             size: 20,
-            color: '#ffffff'
+            color: '#ffffff',
+            isAdded: false,
+            isChosen: false
         }
     ]
 }
-
 
 function getMeme(){
 return gMeme
@@ -42,4 +45,14 @@ function increaseFont(){
 
 function decreaseFont(){
     gMeme.lines[gMeme.selectedLineIdx].size -- 
+}
+
+function addLine(){
+    gMeme.lines[gMeme.selectedLineIdx+1].isAdded = true
+}
+
+function switchLine(){
+    if (gMeme.selectedLineIdx === 0){
+        gMeme.selectedLineIdx = 1
+    } else {gMeme.selectedLineIdx = 0}
 }
