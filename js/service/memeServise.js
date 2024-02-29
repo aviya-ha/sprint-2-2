@@ -5,18 +5,25 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I sometimes eat Falafel',
+            txt: 'hey',
             size: 20,
             color: '#ffffff',
             isAdded: true,
-            isChosen: true
+            isChosen: true,
+            x: 100,
+            y: 120,
+            width: 0
+    
         },
         {
             txt: 'hello world',
             size: 20,
             color: '#ffffff',
             isAdded: false,
-            isChosen: false
+            isChosen: false,
+            x: 100,
+            y: 250,
+            width: 0
         }
     ]
 }

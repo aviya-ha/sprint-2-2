@@ -16,18 +16,16 @@ function renderMeme() {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         meme.lines.map(line => {
             if (line.isAdded && !line.isChosen) {
-                drawText(line, 100, 50)
+                drawText(line, line.x, line.y)
+                line.width = gCtx.measureText(line.txt).width
             }
             if (line.isAdded && line.isChosen) {
-                const x = 100
-                const y = 120
-                editText(line, x, y)
-                var textWidth = gCtx.measureText(line.txt).width
-                console.log('textWidth:', textWidth)
-                console.log('line.size:', line.size)
-                console.log('y11:', y)
+                const x = line.x
+                const y = line.y
+                editText(line, line.x, line.y)
+                line.width = gCtx.measureText(line.txt).width
+                gCtx.strokeRect(line.x, (line.y - line.size), line.width, (line.size + 10))
 
-                gCtx.strokeRect(x, (y - line.size), textWidth, (line.size + 10))
             }
         })
     }
@@ -72,7 +70,7 @@ function onChangeTxt(input) {
 }
 
 function downloadImg(elLink) {
-    const imgContent = gElCanvas.toDataURL('image/jpeg') 
+    const imgContent = gElCanvas.toDataURL('image/jpeg')
     elLink.href = imgContent
 }
 
@@ -103,6 +101,22 @@ function onSwitchLine() {
     const lestText = meme.lines[meme.selectedLineIdx].txt
     const elTextValue = document.getElementById('txt').value = lestText
     renderMeme()
+}
+
+function onClick(ev) {
+    const { offsetX, offsetY, clientX, clientY } = ev
+    var meme = getMeme()
+
+    const hoveredLine = meme.lines.find(line => {
+        const { x, y, size, width } = line
+       if (line.isAdded){
+        return offsetX >= x && offsetX <= x + width &&
+            offsetY <= y && offsetY <= y + size
+       }     
+    })
+    switchLine()
+    renderMeme()
+
 }
 
 
