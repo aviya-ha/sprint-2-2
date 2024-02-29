@@ -33,7 +33,7 @@
 
             <input type="color" id="color" name="color" form="frmRegister" value="#ffffff" id="color"
                 oninput="onChangeColor(this.value)" />
-            
+
 
             <select class="font-family" onchange="onSelectFont(this.value)">
                 <option value="">Choose font...</option>
@@ -64,8 +64,18 @@
 
 
     <main class="main-image-container">
-        <nav class="main-image-nav"> 
+        <nav class="main-image-nav">
             <button class="btn btn-flexible" onclick="onImgSelectRandom()">im flexible</button>
+            <input list="filter" oninput="onInputFilter(this.value)">
+            <datalist id="filter">
+                <option value="funny">
+                <option value="dog">
+                <option value="cat">
+                <option value="cute">
+                <option value="angry">
+                <option value="angry">
+            </datalist>
+            <button class="btn btn-clear" onclick="onClearBtn()">clear</button>
         </nav>
         <main class="main-image-content"></main>
     </main>

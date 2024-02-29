@@ -62,3 +62,20 @@ function onGallery(){
     elSavedMemeContainer.style.display = 'none'
 
 }
+
+function onInputFilter(elValue){
+    console.log('elValue:', elValue)
+    const elImageContainer = document.querySelector('.main-image-content')
+
+ const filteredImg = gImgs.filter(img => 
+    img.keywords[0].includes(elValue) || img.keywords[1].includes(elValue))
+
+
+ console.log('filteredImg:', filteredImg)
+    var strHtmls = filteredImg.map(image => 
+        `
+<img id="${image.id}" src="${image.url}" alt="${image.keywords}" title="${image.keywords}" onclick="onImgSelect(this)"> 
+    `)
+
+    elImageContainer.innerHTML = strHtmls.join('')
+}
