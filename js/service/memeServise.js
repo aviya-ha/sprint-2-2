@@ -5,28 +5,32 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
+            id: 1,
             txt: 'hey',
-            size: 20,
+            size: 40,
             font: 'impact',
             colorTxt: '#ffffff',
             colorStroke: '#000000',
-            textAlign:'left',
+            textAlign:'center',
             isAdded: true,
             isChosen: true,
+            textStartPoint: {x: 220 , y: 120},
             x: 220,
             y: 120,
             width: 0
     
         },
         {
+            id: 2,
             txt: 'hello world',
             size: 40,
             font: 'impact',
             colorTxt: '#ffffff',
             colorStroke: '#000000',
-            textAlign:'left',
+            textAlign:'center',
             isAdded: false,
             isChosen: false,
+            textStartPoint: {x: 220 , y: 400},
             x: 220,
             y: 400,
             width: 0
@@ -46,6 +50,8 @@ function setImg(imgId) {
     gMeme.selectedImgId = imgId
     gMeme.selectedLineIdx = 0
     gMeme.lines[gMeme.selectedLineIdx].size = 40
+    gMeme.lines[0].isAdded = true
+    gMeme.lines[0].isChosen = true
     gMeme.lines[1].isAdded = false
     gMeme.lines[1].isChosen = false
 }
@@ -63,8 +69,27 @@ function decreaseFont() {
 }
 
 function addLine() {
-    gMeme.lines[gMeme.selectedLineIdx + 1].isAdded = true
+    if (gMeme.lines[0].isAdded && gMeme.lines[1].isAdded) return
+    gMeme.lines[1].isAdded = true
 }
+
+// function switchLineOnClick(line) {
+//     console.log('line:', line)
+//     if (line.id === 1 ){
+//         console.log('line1:', line)
+//         gMeme.selectedLineIdx = 1
+//         gMeme.lines[1].isChosen = true
+//         gMeme.lines[0].isChosen = false
+//         console.log('line11:', line)
+//     }else if (line.id === 0){
+//         console.log('line2:', line)
+//         gMeme.selectedLineIdx = 0
+//         gMeme.lines[0].isChosen = true
+//         gMeme.lines[1].isChosen = false
+//     }
+//     console.log('line:', line)
+    
+// }
 
 function switchLine() {
     if (gMeme.lines[0].isAdded === true && gMeme.lines[1].isAdded === true) {

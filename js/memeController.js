@@ -22,11 +22,25 @@ function renderMeme() {
             if (line.isAdded && line.isChosen) {
                 const x = line.x
                 const y = line.y
-                editText(line, line.x, line.y)
+                editText(line, x, y)
                 line.width = gCtx.measureText(line.txt).width
-                if (line.textAlign === 'left') gCtx.strokeRect(line.x, (line.y - line.size), line.width, (line.size + 10))
-                if (line.textAlign === 'right') gCtx.strokeRect(line.x - line.width, (line.y - line.size), line.width, (line.size + 10))
-                if (line.textAlign === 'center') gCtx.strokeRect(line.x - line.width / 2, (line.y - line.size), line.width, (line.size + 10))
+                if (line.textAlign === 'left') {
+                    gCtx.strokeRect(line.x, (line.y - line.size), line.width, (line.size + 10))
+                    line.textStartPoint.x = line.x
+                    line.textStartPoint.y = line.y - line.size
+                }
+
+                if (line.textAlign === 'right'){
+                    gCtx.strokeRect(line.x - line.width, (line.y - line.size), line.width, (line.size +10))
+                    line.textStartPoint.x = line.x - line.width
+                    line.textStartPoint.y = line.y - line.size
+                }
+
+                if (line.textAlign === 'center') {
+                    gCtx.strokeRect(line.x - line.width / 2, (line.y - line.size), line.width, (line.size + 10))
+                    line.textStartPoint.x = line.x - line.width / 2
+                    line.textStartPoint.y = line.y - line.size
+                }
 
             }
         })
@@ -103,7 +117,6 @@ function onDecreaseFont() {
 
 function onAddLine() {
     addLine()
-    onSwitchLine()
     renderMeme()
 }
 
@@ -111,7 +124,7 @@ function onSwitchLine() {
     switchLine()
     const meme = getMeme()
     const lestText = meme.lines[meme.selectedLineIdx].txt
-    const elTextValue = document.getElementById('txt').value = lestText
+    document.getElementById('txt').value = lestText
     renderMeme()
 }
 
@@ -120,14 +133,20 @@ function onClick(ev) {
     var meme = getMeme()
 
     const hoveredLine = meme.lines.find(line => {
-        const { x, y, size, width } = line
+        const {size, width } = line
+        const { x, y } = line.textStartPoint
         if (line.isAdded) {
             return offsetX >= x && offsetX <= x + width &&
-                offsetY <= y && offsetY <= y + size
+            offsetY >= y && offsetY <= y + size
         }
     })
-    switchLine()
-    renderMeme()
+    console.log('hoveredLine:', hoveredLine)
+if (hoveredLine){
+    onSwitchLine()
+    // switchLineOnClick(hoveredLine)
+    // renderMeme()
+
+}
 }
 
 function onSelectFont(elValue) {
