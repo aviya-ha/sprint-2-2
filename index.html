@@ -66,7 +66,7 @@
     <main class="main-image-container">
         <nav class="main-image-nav">
             <button class="btn btn-flexible" onclick="onImgSelectRandom()">im flexible</button>
-            <input list="filter" oninput="onInputFilter(this.value)">
+            <input list="filter"  placeholder="filter" oninput="onInputFilter(this.value)">
             <datalist id="filter">
                 <option value="funny">
                 <option value="dog">
@@ -75,7 +75,6 @@
                 <option value="angry">
                 <option value="angry">
             </datalist>
-            <button class="btn btn-clear" onclick="onClearBtn()">clear</button>
         </nav>
         <main class="main-image-content"></main>
     </main>
