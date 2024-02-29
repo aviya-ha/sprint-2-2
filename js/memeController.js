@@ -24,7 +24,9 @@ function renderMeme() {
                 const y = line.y
                 editText(line, line.x, line.y)
                 line.width = gCtx.measureText(line.txt).width
-                gCtx.strokeRect(line.x, (line.y - line.size), line.width, (line.size + 10))
+                if (line.textAlign === 'left') gCtx.strokeRect(line.x, (line.y - line.size), line.width, (line.size + 10))
+                if (line.textAlign === 'right') gCtx.strokeRect(line.x - line.width, (line.y - line.size), line.width, (line.size + 10))
+                if (line.textAlign === 'center') gCtx.strokeRect(line.x - line.width / 2, (line.y - line.size), line.width, (line.size + 10))
 
             }
         })
@@ -33,15 +35,19 @@ function renderMeme() {
 
 function drawText(line, x, y) {
     const txt = line.txt
-    const color = line.color
+    const colorTxt = line.colorTxt
+    const colorStroke = line.colorStroke
     const size = line.size
+    const fontFamily = line.font
+    const textAlign = line.textAlign
 
+    gCtx.textAlign = textAlign
     gCtx.lineWidth = 2
 
-    gCtx.strokeStyle = color
-    gCtx.fillStyle = color
+    gCtx.strokeStyle = colorStroke
+    gCtx.fillStyle = colorTxt
 
-    gCtx.font = `${size}px Arial`
+    gCtx.font = `${size}px ${fontFamily}`
 
     gCtx.fillText(txt, x, y)
     gCtx.strokeText(txt, x, y)
@@ -50,15 +56,21 @@ function drawText(line, x, y) {
 
 function editText(line, x, y) {
     const txt = line.txt
-    const color = line.color
+    const colorTxt = line.colorTxt
+    const colorStroke = line.colorStroke
     const size = line.size
+    const fontFamily = line.font
+    const textAlign = line.textAlign
+
+
+    gCtx.textAlign = textAlign
 
     gCtx.lineWidth = 2
 
-    gCtx.strokeStyle = color
-    gCtx.fillStyle = color
+    gCtx.strokeStyle = colorStroke
+    gCtx.fillStyle = colorTxt
 
-    gCtx.font = `${size}px Arial`
+    gCtx.font = `${size}px ${fontFamily}`
 
     gCtx.fillText(txt, x, y)
     gCtx.strokeText(txt, x, y)
@@ -109,13 +121,24 @@ function onClick(ev) {
 
     const hoveredLine = meme.lines.find(line => {
         const { x, y, size, width } = line
-       if (line.isAdded){
-        return offsetX >= x && offsetX <= x + width &&
-            offsetY <= y && offsetY <= y + size
-       }     
+        if (line.isAdded) {
+            return offsetX >= x && offsetX <= x + width &&
+                offsetY <= y && offsetY <= y + size
+        }
     })
     switchLine()
     renderMeme()
+}
+
+function onSelectFont(elValue) {
+    selectFont(elValue)
+    renderMeme()
+}
+
+function onSelectAlignment(elValue) {
+    selectAlignment(elValue)
+    renderMeme()
+
 }
 
 

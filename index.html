@@ -16,7 +16,7 @@
         <nav class="main-nav flex space-around">
             <button class="btn btn-gallery">Gallery</button>
             <button class="btn btn-memes">Memes</button>
-            <button class="btn btn-about">About</button>          
+            <button class="btn btn-about">About</button>
         </nav>
     </header>
 
@@ -31,7 +31,25 @@
 
             <a href="#" class="btn" onclick="downloadImg(this)" download="my-meme.jpg">Download jpeg</a>
 
-            <input type="color" id="color" name="color" form="frmRegister" value="#ffffff" id="color" oninput="onChangeColor(this.value)"/>
+            <input type="color" id="color" name="color" form="frmRegister" value="#ffffff" id="color"
+                oninput="onChangeColor(this.value)" />
+            
+
+            <select class="font-family" onchange="onSelectFont(this.value)">
+                <option value="">Choose font...</option>
+                <option>Arial</option>
+                <option>Courier New</option>
+                <option>Franklin Gothic Medium</option>
+                <option>sans-serif</option>
+                <option>impact</option>
+            </select>
+
+            <select class="font-Alignment" onchange="onSelectAlignment(this.value)">
+                <option value="">Choose Alignment...</option>
+                <option>right</option>
+                <option>left</option>
+                <option>center</option>
+            </select>
 
             <button class="btn btn-increase" onclick="onIncreaseFont()">👆</button>
             <button class="btn btn-decrease" onclick="onDecreaseFont()">👇</button>

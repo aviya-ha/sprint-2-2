@@ -7,27 +7,33 @@ var gMeme = {
         {
             txt: 'hey',
             size: 20,
-            color: '#ffffff',
+            font: 'impact',
+            colorTxt: '#ffffff',
+            colorStroke: '#000000',
+            textAlign:'left',
             isAdded: true,
             isChosen: true,
-            x: 100,
+            x: 220,
             y: 120,
             width: 0
     
         },
         {
             txt: 'hello world',
-            size: 20,
-            color: '#ffffff',
+            size: 40,
+            font: 'impact',
+            colorTxt: '#ffffff',
+            colorStroke: '#000000',
+            textAlign:'left',
             isAdded: false,
             isChosen: false,
-            x: 100,
-            y: 250,
+            x: 220,
+            y: 400,
             width: 0
         }
     ]
 }
-
+color
 function getMeme() {
     return gMeme
 }
@@ -45,7 +51,7 @@ function setImg(imgId) {
 }
 
 function changeColor(input) {
-    gMeme.lines[gMeme.selectedLineIdx].color = input
+    gMeme.lines[gMeme.selectedLineIdx].colorTxt = input
 }
 
 function increaseFont() {
@@ -72,4 +78,14 @@ function switchLine() {
             gMeme.lines[1].isChosen = false
         }
     } else return
+}
+
+function selectFont(elValue){
+    gMeme.lines.map(line => {
+        if (line.isChosen) line.font = elValue})
+}
+
+function selectAlignment(elValue){
+    gMeme.lines.map(line => {
+        if (line.isChosen) line.textAlign = elValue})
 }
