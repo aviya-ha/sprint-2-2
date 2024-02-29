@@ -160,6 +160,21 @@ function onSelectAlignment(elValue) {
 
 }
 
+function onMoveUp(){
+    moveUp()
+    renderMeme()
+}
+
+function onMoveDown(){
+    moveDown()
+    renderMeme()
+}
+
+function onDelete(){
+    deleteLine()
+    renderMeme()
+
+}
 
 
 
