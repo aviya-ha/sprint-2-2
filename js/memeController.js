@@ -34,8 +34,8 @@ function renderMeme() {
                     line.textStartPoint.y = line.y - line.size
                 }
 
-                if (line.textAlign === 'right'){
-                    gCtx.strokeRect(line.x - line.width, (line.y - line.size), line.width, (line.size +10))
+                if (line.textAlign === 'right') {
+                    gCtx.strokeRect(line.x - line.width, (line.y - line.size), line.width, (line.size + 10))
                     line.textStartPoint.x = line.x - line.width
                     line.textStartPoint.y = line.y - line.size
                 }
@@ -133,24 +133,24 @@ function onSwitchLine() {
 }
 
 function onClick(ev) {
-    const { offsetX, offsetY, clientX, clientY } = ev
+    const { offsetX, offsetY } = ev
     var meme = getMeme()
 
     const hoveredLine = meme.lines.find(line => {
-        const {size, width } = line
+        const { size, width } = line
         const { x, y } = line.textStartPoint
         if (line.isAdded) {
             return offsetX >= x && offsetX <= x + width &&
-            offsetY >= y && offsetY <= y + size
+                offsetY >= y && offsetY <= y + size
         }
     })
     const lestText = hoveredLine.txt
     document.getElementById('txt').value = lestText
-if (hoveredLine){
-    switchLineOnClick(hoveredLine)
-    renderMeme()
+    if (hoveredLine) {
+        switchLineOnClick(hoveredLine)
+        renderMeme()
 
-}
+    }
 }
 
 function onSelectFont(elValue) {
@@ -164,52 +164,51 @@ function onSelectAlignment(elValue) {
 
 }
 
-function onMoveUp(){
+function onMoveUp() {
     moveUp()
     renderMeme()
 }
 
-function onMoveDown(){
+function onMoveDown() {
     moveDown()
     renderMeme()
 }
 
-function onDelete(){
+function onDelete() {
     deleteLine()
     renderMeme()
 
 }
 
-function onSave(){
+function onSave() {
     saveMeme()
 }
 
 function onUploadImg() {
-    const imgDataUrl = gElCanvas.toDataURL('image/jpeg') 
+    const imgDataUrl = gElCanvas.toDataURL('image/jpeg')
 
     function onSuccess(uploadedImgUrl) {
         const url = encodeURIComponent(uploadedImgUrl)
         window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&t=${url}`)
     }
-    
+
     doUploadImg(imgDataUrl, onSuccess)
 }
-
 
 function doUploadImg(imgDataUrl, onSuccess) {
 
     const formData = new FormData()
     formData.append('img', imgDataUrl)
 
- 
+
     const XHR = new XMLHttpRequest()
     XHR.onreadystatechange = () => {
-       
+
         if (XHR.readyState !== XMLHttpRequest.DONE) return
-        
+
         if (XHR.status !== 200) return console.error('Error uploading image')
         const { responseText: url } = XHR
-     
+
         console.log('Got back live url:', url)
         onSuccess(url)
     }

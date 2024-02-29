@@ -1,27 +1,19 @@
-.main-header{
-    background-color:var(--primary2-base);
+.main-header {
+    border-radius: 0px 50px 0px 50px;
+    background-color: var(--primary2-base);
     grid-column: 1 / -1;
-    grid-row: 1 ;
+    grid-row: 1;
     grid-template-columns: 200px 1fr;
+    margin-bottom: 10px;
+    padding-right: 50px;
 }
 
-.main-nav-links {
-    justify-content: space-between;   
-}
-.main-nav-links li {
-    height: 100%;  
+.main-header .btn:hover {
+    color: var(--primary3-base);
 }
 
-.main-nav-links .links{
-    font-size: 40px;
-    padding: 30px;    
-}
-
-.main-nav-links .links:hover{
-    color: green;
-}
-
-.logo{
-    padding:10px;
+.logo {
+    margin-left: 10px;
+    padding: 10px;
     font-size: 60px;
 }

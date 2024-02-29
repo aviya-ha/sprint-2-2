@@ -15,14 +15,14 @@ var gMeme = {
             font: 'impact',
             colorTxt: '#ffffff',
             colorStroke: '#000000',
-            textAlign:'center',
+            textAlign: 'center',
             isAdded: true,
             isChosen: true,
-            textStartPoint: {x: 220 , y: 120},
+            textStartPoint: { x: 220, y: 120 },
             x: 220,
             y: 120,
             width: 0
-    
+
         },
         {
             id: 2,
@@ -31,10 +31,10 @@ var gMeme = {
             font: 'impact',
             colorTxt: '#ffffff',
             colorStroke: '#000000',
-            textAlign:'center',
+            textAlign: 'center',
             isAdded: false,
             isChosen: false,
-            textStartPoint: {x: 220 , y: 400},
+            textStartPoint: { x: 220, y: 400 },
             x: 220,
             y: 400,
             width: 0
@@ -79,44 +79,34 @@ function addLine() {
     switchLine()
 }
 
-function moveUp(){
+function moveUp() {
     var lineIndex = gMeme.lines.findIndex(line => line.isChosen)
     gMeme.lines[lineIndex].y--
 }
 
-function moveDown(){
+function moveDown() {
     var lineIndex = gMeme.lines.findIndex(line => line.isChosen)
     gMeme.lines[lineIndex].y++
 }
 
-function deleteLine(){
+function deleteLine() {
     var lineIndex = gMeme.lines.findIndex(line => line.isChosen)
     gMeme.lines[lineIndex].isAdded = false
     switchLine()
 }
 
-
-
-
 function switchLineOnClick(line) {
-    console.log('line:', line)
-    if (line.id === 1 ){
-        console.log('line1:', line)
+    if (line.id === 1) {
         gMeme.selectedLineIdx = 0
         gMeme.lines[0].isChosen = true
         gMeme.lines[1].isChosen = false
-        console.log('line11:', line)
-    }else if (line.id === 2){
-        console.log('line2:', line)
+    } else if (line.id === 2) {
         gMeme.selectedLineIdx = 1
         gMeme.lines[1].isChosen = true
         gMeme.lines[0].isChosen = false
     }
-    console.log('line:', line)
-    
+
 }
-
-
 
 function switchLine() {
     if (gMeme.lines[0].isAdded === true && gMeme.lines[1].isAdded === true) {
@@ -132,18 +122,20 @@ function switchLine() {
     } else return
 }
 
-function selectFont(elValue){
+function selectFont(elValue) {
     gMeme.lines.map(line => {
-        if (line.isChosen) line.font = elValue})
+        if (line.isChosen) line.font = elValue
+    })
 }
 
-function selectAlignment(elValue){
+function selectAlignment(elValue) {
     gMeme.lines.map(line => {
-        if (line.isChosen) line.textAlign = elValue})
-       
+        if (line.isChosen) line.textAlign = elValue
+    })
+
 }
 
-function saveMeme(){
+function saveMeme() {
     gMemes.push(gMeme)
     _save()
 }

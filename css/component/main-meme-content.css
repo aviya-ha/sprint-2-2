@@ -5,18 +5,19 @@
 }
 
 .canvas-container{
-    background-color: yellow;
-    width: fit-content;
-    /* width: 100%; */
+    width: fit-content;   
 }
 
-
-
 .main-meme-content .btn{
-    border-radius: 0;
+    border-radius: 5;
     background-color: var(--primary2-base-2) ;
     border: 1px solid var(--primary2-base--1);
     padding: 5px;
+}
+
+.main-meme-content .btn:hover{
+    background-color: var(--primary3-base) ;
+
 }
 
 .editor-container{

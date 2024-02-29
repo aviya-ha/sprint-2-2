@@ -58,8 +58,8 @@
             <button class="btn btn-up" onclick="onMoveUp()">up</button>
             <button class="btn btn-down" onclick="onMoveDown()">down</button>
             <button class="btn btn-delete" onclick="onDelete()">delete line</button>
-            <button class="btn btn-save" onclick="onSave()">save line</button>
-            <button class="btn" onclick="onUploadImg()">Facebook</button>
+            <button class="btn btn-save" onclick="onSave()">save meme</button>
+            <button class="btn btn-facbook" onclick="onUploadImg()">Facebook</button>
         </section>
     </main>
 
@@ -67,14 +67,15 @@
     <main class="main-image-container">
         <nav class="main-image-nav">
             <button class="btn btn-flexible" onclick="onImgSelectRandom()">im flexible</button>
-            <input list="filter"  placeholder="filter" oninput="onInputFilter(this.value)">
+            <input id="filter-input" list="filter" placeholder="filter" oninput="onInputFilter(this.value)">
             <datalist id="filter">
                 <option value="funny">
                 <option value="dog">
                 <option value="cat">
                 <option value="cute">
                 <option value="angry">
-                <option value="angry">
+                <option value="baby">
+                <option value="men">
             </datalist>
         </nav>
         <main class="main-image-content"></main>

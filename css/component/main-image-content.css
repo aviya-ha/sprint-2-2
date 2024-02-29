@@ -1,11 +1,40 @@
-
-.main-image-content{
-    /* display: none; */
+.main-image-content {
     margin: auto;
     display: flex;
-    background-color: rgb(255, 240, 253);
     grid-column: 1/-1;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: space-around;   
+    justify-content: space-around;
+}
+
+.main-image-nav {
+    display: flex;
+    height: 50px;
+    justify-content: space-around;
+}
+
+.btn-flexible {
+    height: 50%;
+    align-self: center;
+    padding-inline: 50px;
+}
+
+.btn-flexible:hover {
+    height: 65%;
+    background-color: var(--primary3-base);
+}
+
+#filter-input {
+    height: 50%;
+    align-self: center;
+    background-color: var(--primary2-base);
+}
+
+#filter-input:hover {
+    height: 65%;
+    background-color: var(--primary3-base);
+}
+
+#filter {
+    color: var(--primary-base);
 }
