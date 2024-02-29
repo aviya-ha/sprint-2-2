@@ -39,8 +39,15 @@ function renderGallery() {
 
 function onImgSelect({ id }) {
     setImg(id)
-    const elImageContainer = document.querySelector('.main-image-content')
+    const elImageContainer = document.querySelector('.main-image-container')
     elImageContainer.style.display = 'none'
     renderMeme()
 }
 
+function onImgSelectRandom(){
+    const randomId = getRandomInt(1,18)
+    setImg(randomId)
+    const elImageContainer = document.querySelector('.main-image-container')
+    elImageContainer.style.display = 'none'
+    renderMeme()
+}
