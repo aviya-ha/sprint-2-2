@@ -91,6 +91,24 @@ function switchLineOnClick(line) {
     
 }
 
+// function switchLineOnClick(line) {
+//     console.log('line:', line)
+//     if (line.id === 1 ){
+//         console.log('line1:', line)
+//         gMeme.selectedLineIdx = 1
+//         gMeme.lines[1].isChosen = true
+//         gMeme.lines[0].isChosen = false
+//         console.log('line11:', line)
+//     }else if (line.id === 0){
+//         console.log('line2:', line)
+//         gMeme.selectedLineIdx = 0
+//         gMeme.lines[0].isChosen = true
+//         gMeme.lines[1].isChosen = false
+//     }
+//     console.log('line:', line)
+    
+// }
+
 function switchLine() {
     if (gMeme.lines[0].isAdded === true && gMeme.lines[1].isAdded === true) {
         if (gMeme.selectedLineIdx === 0) {
