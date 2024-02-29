@@ -1,5 +1,9 @@
 'us strict'
 
+var STORAGE_KEY = 'saved memes'
+
+const gMemes = []
+
 var gMeme = {
     selectedImgId: 8,
     selectedLineIdx: 0,
@@ -37,7 +41,7 @@ var gMeme = {
         }
     ]
 }
-color
+
 function getMeme() {
     return gMeme
 }
@@ -91,6 +95,9 @@ function deleteLine(){
     switchLine()
 }
 
+
+
+
 function switchLineOnClick(line) {
     console.log('line:', line)
     if (line.id === 1 ){
@@ -133,5 +140,14 @@ function selectFont(elValue){
 function selectAlignment(elValue){
     gMeme.lines.map(line => {
         if (line.isChosen) line.textAlign = elValue})
+       
 }
 
+function saveMeme(){
+    gMemes.push(gMeme)
+    _save()
+}
+
+function _save() {
+    saveToStorage(STORAGE_KEY, gMemes)
+}

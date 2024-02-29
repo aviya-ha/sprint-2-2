@@ -1,0 +1,15 @@
+
+.saved-meme{
+    /* display: none; */
+    margin: auto;
+    display: flex;
+    background-color: rgb(255, 240, 253);
+    grid-column: 1/-1;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-around;   
+}
+
+.main-saved-container{
+    background-color: black;
+}

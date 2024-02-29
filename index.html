@@ -14,8 +14,8 @@
     <header class="main-header grid">
         <div class="logo">logo</div>
         <nav class="main-nav flex space-around">
-            <button class="btn btn-gallery">Gallery</button>
-            <button class="btn btn-memes">Memes</button>
+            <button class="btn btn-gallery" onclick="onGallery()">Gallery</button>
+            <button class="btn btn-memes" onclick="onSavedMemes()">Saved Memes</button>
             <button class="btn btn-about">About</button>
         </nav>
     </header>
@@ -58,6 +58,7 @@
             <button class="btn btn-up" onclick="onMoveUp()">up</button>
             <button class="btn btn-down" onclick="onMoveDown()">down</button>
             <button class="btn btn-delete" onclick="onDelete()">delete line</button>
+            <button class="btn btn-save" onclick="onSave()">save line</button>
         </section>
     </main>
 
@@ -69,10 +70,16 @@
         <main class="main-image-content"></main>
     </main>
 
+    <main class="main-saved-container">
+        <div class="saved-meme"></div>
+    </main>
+
 
     <script src="js/service/util.js"></script>
+    <script src="js/service/localstorage.js"></script>
     <script src="js/service/memeServise.js"></script>
     <script src="js/memeController.js"></script>
+    <script src="js/memeSavedController.js"></script>
     <script src="js/galleryController.js"></script>
 
 </body>

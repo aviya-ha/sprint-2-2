@@ -7,8 +7,12 @@ var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
 
 function renderMeme() {
+    const elSavedMemeContainer = document.querySelector('.main-saved-container')
+    elSavedMemeContainer.style.display = 'none'
     const elMemeContainer = document.querySelector('.main-meme-content')
     elMemeContainer.style.display = 'flex'
+
+
     var meme = getMeme()
     const elImg = new Image()
     elImg.src = `img/${meme.selectedImgId}.jpg`
@@ -176,6 +180,8 @@ function onDelete(){
 
 }
 
-
+function onSave(){
+    saveMeme()
+}
 
 

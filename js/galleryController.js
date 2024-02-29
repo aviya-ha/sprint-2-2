@@ -51,3 +51,14 @@ function onImgSelectRandom(){
     elImageContainer.style.display = 'none'
     renderMeme()
 }
+
+
+function onGallery(){
+    const elImageContainer = document.querySelector('.main-image-container')
+    elImageContainer.style.display = 'block'
+    const elMemeContainer = document.querySelector('.main-meme-content')
+    elMemeContainer.style.display = 'none'
+    const elSavedMemeContainer = document.querySelector('.main-saved-container')
+    elSavedMemeContainer.style.display = 'none'
+
+}
