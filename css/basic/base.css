@@ -2,11 +2,10 @@
     box-sizing: border-box;
 }
 
-/* html {
+html {
     font-family: lato, serif;
     color: var(--primary-base);
-    background-color: var(--primary-3);
-} */
+}
 
 body {
     margin: 0;
@@ -28,3 +27,19 @@ a {
     color: var(--primary-base);
     text-decoration: none;
 }
+
+img{
+    width: 220px;
+    border: 1px solid black;
+  }
+
+  .btn{
+    border-radius: 25px;
+    /* padding: 10px; */
+    background-color: var(--primary2-base);
+    border: none;
+  }
+
+  .btn:hover{
+    color: var(--primary2-base-2);
+  }

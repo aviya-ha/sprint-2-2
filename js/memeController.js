@@ -116,7 +116,6 @@ function onClick(ev) {
     })
     switchLine()
     renderMeme()
-
 }
 
 

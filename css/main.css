@@ -17,3 +17,5 @@
 /* @import url(setup/typography.css); */
 @import url(setup/vars.css);
 
+/* MEDIA QUERIES */
+@import url("setup/mq.css");

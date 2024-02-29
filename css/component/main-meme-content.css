@@ -1,14 +1,28 @@
 
 .main-meme-content{
     display: none;
-    background-color: rgb(117, 160, 170);
+    background-color: var(--primary2-base--1);
 }
 
 .canvas-container{
-    /* background-color: yellow; */
+    background-color: yellow;
     width: fit-content;
+    /* width: 100%; */
 }
 
-canvas{
-    border: 5px solid red;
+
+
+.main-meme-content .btn{
+    border-radius: 0;
+    background-color: var(--primary2-base-2) ;
+    border: 1px solid var(--primary2-base--1);
+    padding: 5px;
+}
+
+.editor-container{
+    display: flex;
+    flex-flow: column;
+    padding: 50px;
+    gap: 10px;
+    flex-wrap: wrap;
 }
