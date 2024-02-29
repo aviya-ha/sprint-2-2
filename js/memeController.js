@@ -140,6 +140,8 @@ function onClick(ev) {
             offsetY >= y && offsetY <= y + size
         }
     })
+    const lestText = hoveredLine.txt
+    document.getElementById('txt').value = lestText
     console.log('hoveredLine:', hoveredLine)
 if (hoveredLine){
     // onSwitchLine()
