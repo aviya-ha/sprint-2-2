@@ -142,9 +142,7 @@ function onClick(ev) {
     })
     const lestText = hoveredLine.txt
     document.getElementById('txt').value = lestText
-    console.log('hoveredLine:', hoveredLine)
 if (hoveredLine){
-    // onSwitchLine()
     switchLineOnClick(hoveredLine)
     renderMeme()
 
