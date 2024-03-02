@@ -29,19 +29,19 @@ function renderMeme() {
                 editText(line, x, y)
                 line.width = gCtx.measureText(line.txt).width
                 if (line.textAlign === 'left') {
-                    gCtx.strokeRect(line.x, (line.y - line.size), line.width, (line.size + 10))
+                    gCtx.strokeRect(line.x, line.y - line.size, line.width, line.size + 10)
                     line.textStartPoint.x = line.x
                     line.textStartPoint.y = line.y - line.size
                 }
 
                 if (line.textAlign === 'right') {
-                    gCtx.strokeRect(line.x - line.width, (line.y - line.size), line.width, (line.size + 10))
+                    gCtx.strokeRect(line.x - line.width, line.y - line.size, line.width, line.size + 10)
                     line.textStartPoint.x = line.x - line.width
                     line.textStartPoint.y = line.y - line.size
                 }
 
                 if (line.textAlign === 'center') {
-                    gCtx.strokeRect(line.x - line.width / 2, (line.y - line.size), line.width, (line.size + 10))
+                    gCtx.strokeRect(line.x - line.width / 2, line.y - line.size, line.width, line.size + 10)
                     line.textStartPoint.x = line.x - line.width / 2
                     line.textStartPoint.y = line.y - line.size
                 }
@@ -136,7 +136,7 @@ function onClick(ev) {
     const { offsetX, offsetY } = ev
     var meme = getMeme()
 
-    const hoveredLine = meme.lines.find(line => {
+    var hoveredLine = meme.lines.find(line => {
         const { size, width } = line
         const { x, y } = line.textStartPoint
         if (line.isAdded) {
@@ -144,9 +144,9 @@ function onClick(ev) {
                 offsetY >= y && offsetY <= y + size
         }
     })
-    const lestText = hoveredLine.txt
-    document.getElementById('txt').value = lestText
     if (hoveredLine) {
+        var lestText = hoveredLine.txt
+        document.getElementById('txt').value = lestText
         switchLineOnClick(hoveredLine)
         renderMeme()
 

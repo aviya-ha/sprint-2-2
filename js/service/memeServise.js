@@ -56,8 +56,10 @@ function setImg(imgId) {
     gMeme.lines[gMeme.selectedLineIdx].size = 40
     gMeme.lines[0].isAdded = true
     gMeme.lines[0].isChosen = true
+    gMeme.lines[0].font = 'impact'
     gMeme.lines[1].isAdded = false
     gMeme.lines[1].isChosen = false
+    gMeme.lines[1].font = 'impact'
 }
 
 function changeColor(input) {
@@ -143,3 +145,5 @@ function saveMeme() {
 function _save() {
     saveToStorage(STORAGE_KEY, gMemes)
 }
+
+

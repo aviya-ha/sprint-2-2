@@ -29,14 +29,13 @@ a {
 }
 
 img {
-    width: 220px;
+    width: 250px;
     border: 1px solid black;
     border-radius: 10px;
 }
 
 .btn {
     border-radius: 25px;
-    /* padding: 10px; */
     background-color: var(--primary2-base);
     border: none;
 }

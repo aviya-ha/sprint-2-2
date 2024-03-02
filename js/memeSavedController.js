@@ -19,7 +19,8 @@ function renderSavedMemes() {
 
     var strHtmls = allMemes.map(image =>
         `
-<img id="${image.selectedImgId}" src="img/${image.selectedImgId}.jpg" onclick="onImgSelect(this)"> 
+        <canvas style="background-image: url("img/${image.selectedImgId}.jpg");" height="250" width="250" onclick="onClick(event)"></canvas>
+
     `
     )
     elSavedMemeContainer.innerHTML = strHtmls.join('')
