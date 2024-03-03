@@ -11,15 +11,16 @@
     display: flex;
     height: 50px;
     justify-content: space-around;
+    align-items: center;
 }
 
-.btn-flexible {
+.btn-flexible , .btn-clear {
     height: 50%;
     align-self: center;
     padding-inline: 50px;
 }
 
-.btn-flexible:hover {
+.btn-flexible:hover , .btn-clear:hover {
     height: 65%;
     background-color: var(--primary3-base);
 }

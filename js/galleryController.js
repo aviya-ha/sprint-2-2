@@ -79,3 +79,8 @@ function onInputFilter(elValue){
 
     elImageContainer.innerHTML = strHtmls.join('')
 }
+
+function onClearBtn(){
+     document.getElementById('filter-input').value=""
+     renderGallery()
+}

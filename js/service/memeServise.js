@@ -66,6 +66,10 @@ function changeColor(input) {
     gMeme.lines[gMeme.selectedLineIdx].colorTxt = input
 }
 
+function changeColorStroke(input){
+    gMeme.lines[gMeme.selectedLineIdx].colorStroke = input
+}
+
 function increaseFont() {
     gMeme.lines[gMeme.selectedLineIdx].size++
 }
@@ -169,5 +173,7 @@ function _resetLine(index){
 function _save() {
     saveToStorage(STORAGE_KEY, gMemes)
 }
+
+
 
 

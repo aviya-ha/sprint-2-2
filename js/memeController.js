@@ -39,18 +39,24 @@ function renderMeme() {
                 editText(line, x, y)
                 line.width = gCtx.measureText(line.txt).width
                 if (line.textAlign === 'left') {
+                    gCtx.beginPath()
+                    gCtx.strokeStyle = 'black'
                     gCtx.strokeRect(line.x -10, line.y - line.size, line.width +20, line.size + 10)
                     line.textStartPoint.x = line.x
                     
                 }
 
                 if (line.textAlign === 'right') {
+                    gCtx.beginPath()
+                    gCtx.strokeStyle = 'black'
                     gCtx.strokeRect(line.x - line.width -10, line.y - line.size, line.width +20, line.size + 10)
                     line.textStartPoint.x = line.x - line.width
                     
                 }
 
                 if (line.textAlign === 'center') {
+                    gCtx.beginPath()
+                    gCtx.strokeStyle = 'black'
                     gCtx.strokeRect(line.x - line.width / 2 -10, line.y - line.size, line.width +20, line.size + 10)
                     line.textStartPoint.x = line.x - line.width / 2
                     
@@ -62,7 +68,7 @@ function renderMeme() {
 }
 
 function drawText(line, x, y) {
-    // gCtx.beginPath()
+    gCtx.beginPath()
     const txt = line.txt
     const colorTxt = line.colorTxt
     const colorStroke = line.colorStroke
@@ -80,11 +86,12 @@ function drawText(line, x, y) {
 
     gCtx.fillText(txt, x, y)
     gCtx.strokeText(txt, x, y)
+    gCtx.closePath()
 
 }
 
 function editText(line, x, y) {
-    // gCtx.beginPath()
+    gCtx.beginPath()
     const txt = line.txt
     const colorTxt = line.colorTxt
     const colorStroke = line.colorStroke
@@ -104,6 +111,7 @@ function editText(line, x, y) {
 
     gCtx.fillText(txt, x, y)
     gCtx.strokeText(txt, x, y)
+    gCtx.closePath()
 }
 
 function onChangeTxt(input) {
@@ -121,6 +129,11 @@ function onChangeColor(color) {
     renderMeme()
 }
 
+function onChangeColorStroke(color){
+    changeColorStroke(color)
+    renderMeme()
+}
+
 function onIncreaseFont() {
     increaseFont()
     renderMeme()
@@ -134,6 +147,8 @@ function onDecreaseFont() {
 function onAddLine() {
     addLine()
     document.getElementById('txt').value = ''
+    document.getElementById('color').value = "#ffffff"
+    document.getElementById('color-stroke').value = "#000000"
     renderMeme()
 }
 
@@ -141,7 +156,11 @@ function onSwitchLine() {
     switchLine()
     const meme = getMeme()
     const lestText = meme.lines[meme.selectedLineIdx].txt
+    const lestColor = meme.lines[meme.selectedLineIdx].colorTxt
+    const lestColorStroke = meme.lines[meme.selectedLineIdx].colorStroke
     document.getElementById('txt').value = lestText
+    document.getElementById('color').value = lestColor
+    document.getElementById('color-stroke').value = lestColorStroke
     renderMeme()
 }
 
@@ -160,7 +179,11 @@ function onClick(ev) {
     console.log('hoveredLine:', hoveredLine)
     if (hoveredLine) {
         var lestText = hoveredLine.txt
+        var lestColor = hoveredLine.colorTxt
+        var lestColorStroke = hoveredLine.colorStroke
         document.getElementById('txt').value = lestText
+        document.getElementById('color').value = lestColor
+        document.getElementById('color-stroke').value = lestColorStroke
         switchLineOnClick(hoveredLine)
         renderMeme()
 
