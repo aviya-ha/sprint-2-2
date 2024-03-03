@@ -1,7 +1,9 @@
 
 .main-meme-content{
     display: none;
-    background-color: var(--primary2-base--1);
+    background-color: var(--primary2-base-22);
+    margin: 30px;
+  
 }
 
 .canvas-container{
@@ -10,8 +12,9 @@
 
 .main-meme-content .btn{
     border-radius: 5;
+   
     background-color: var(--primary2-base-2) ;
-    border: 1px solid var(--primary2-base--1);
+    border: 1px solid rgba(0, 0, 0, 0);
     padding: 5px;
 }
 

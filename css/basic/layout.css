@@ -1,7 +1,11 @@
-.main-layuot {
+.main-layout {
     padding: 50px;
-    display: grid;
-    grid-template-columns: minmax(250px 1fr) minmax(250px 1fr);
-    grid-template-rows: 100px 500px;
     justify-content: center;
+    
+}
+
+.main-layout-meme{
+    display: grid;
+    grid-template-columns: minmax(50% 1fr) minmax(50% 1fr);
+    grid-template-rows: 100px 500px;
 }

@@ -23,23 +23,23 @@ const gImgs = [
 const gAllKeywords = [
     {
         id: 'men',
-        count: 5
+        count: 1
     },
     {
         id: 'angry',
-        count: 5
+        count: 1
     },
     {
         id: 'dog',
-        count: 5
+        count: 1
     },
     {
         id: 'baby',
-        count: 10
+        count: 1
     },
     {
         id: 'funny',
-        count: 5
+        count: 1
     }
 ]
 
@@ -65,7 +65,7 @@ function renderFilters() {
     const elFilterPop = document.querySelector('.filter-pop')
 
     var strHtmls = gAllKeywords.map(word => `
-    <span class="key-word ${word.id}" style=" font-size: ${word.count}px;" onclick="onKeyWordClick(this)">${word.id} </span> 
+    <span class="key-word ${word.id}" style=" font-size: ${word.count}em;" onclick="onKeyWordClick(this)">${word.id} </span> 
     `)
 
     elFilterPop.innerHTML = strHtmls.join('')
@@ -73,7 +73,7 @@ function renderFilters() {
 
 function onKeyWordClick(elSpan) {
     var word = gAllKeywords.find(word => word.id === elSpan.innerText)
-    word.count += 2
+    word.count += 0.05
     const elImageContainer = document.querySelector('.main-image-content')
     var filteredImg = filterImgs(elSpan.innerText)
   
@@ -120,7 +120,7 @@ function onInputFilter(elValue) {
 
     var word = gAllKeywords.find(word => word.id === elValue)
 
-    word.count += 2
+    word.count += 0.05
     renderFilters()
 
     const elImageContainer = document.querySelector('.main-image-content')

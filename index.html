@@ -8,7 +8,9 @@
     <title>memes</title>
 </head>
 
-<body class="main-layuot" onload="onInit()">
+<body  onload="onInit()">
+
+<div class="main-layout">
 
 
     <header class="main-header grid">
@@ -20,7 +22,7 @@
         </nav>
     </header>
 
-    <main class="main-meme-content flex">
+    <main class="main-meme-content main-layout ">
         <div class="canvas-container">
             <canvas style="background: pink;" height="500" width="500" ></canvas>
         </div>
@@ -28,7 +30,7 @@
 
             <input type="text" id="txt" name="txt" placeholder="your text" oninput="onChangeTxt(this.value)" />
 
-            <a href="#" class="btn" onclick="downloadImg(this)" download="my-meme.jpg">Download jpeg</a>
+            <a href="#" class="btn btn-download" onclick="downloadImg(this)" download="my-meme.jpg">Download jpeg</a>
             <div>
 
                 <input type="color" id="color" name="color" form="frmRegister" value="#ffffff"
@@ -63,6 +65,7 @@
                 <button class="btn btn-down" onclick="onMoveDown()">down</button>
             </div>
             <button class="btn btn-switch-line" onclick="onSwitchLine(this)">Switch Line</button>
+        
             <button class="btn btn-delete" onclick="onDelete()">delete line</button>
             <button class="btn btn-save" onclick="onSave()">save meme</button>
             <button class="btn btn-facbook" onclick="onUploadImg()">Facebook</button>
@@ -81,8 +84,8 @@
             <datalist id="filter" value="">
                 <option value="funny">
                 <option value="dog">
-                <option value="cat">
-                <option value="cute">
+                <!-- <option value="cat"> -->
+                <!-- <option value="cute"> -->
                 <option value="angry">
                 <option value="baby">
                 <option value="men">
@@ -96,6 +99,10 @@
     <main class="main-saved-container">
         <div class="saved-meme"></div>
     </main>
+</div>
+    <footer>
+        aviya harel
+    </footer>
 
 
     <script src="js/service/util.js"></script>
@@ -109,6 +116,3 @@
 
 </html>
 
-<!-- <div class="canvas-container">
-    <canvas style="background-image: url(/img/1.jpg);" height="250" width="250" onclick="onClick(event)"></canvas>
-</div> -->

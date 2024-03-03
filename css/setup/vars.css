@@ -1,9 +1,10 @@
 :root {
     /* colors  */
     --primary-base: #141414;
-    --primary2-base: #c665a1;
+    --primary2-base: #f070bf;
     --primary2-base-1: #f24fb4;
     --primary2-base-2: #ffa0db;
+    --primary2-base-22:rgb(158, 69, 124);
     --primary2-base--1: #4b1b38;
     --primary3-base: #f9f98a;
 }

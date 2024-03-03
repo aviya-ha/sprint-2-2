@@ -1,5 +1,4 @@
 .main-image-content {
-    margin: auto;
     display: flex;
     grid-column: 1/-1;
     flex-wrap: wrap;
@@ -8,24 +7,29 @@
 }
 
 .main-image-nav {
+    font-size: 16px;
     display: flex;
     height: 50px;
     justify-content: space-around;
     align-items: center;
 }
 
-.btn-flexible , .btn-clear {
+.btn-flexible,
+.btn-clear {
     height: 50%;
+    font-size: 1em;
     align-self: center;
     padding-inline: 50px;
 }
 
-.btn-flexible:hover , .btn-clear:hover {
+.btn-flexible:hover,
+.btn-clear:hover {
     height: 65%;
     background-color: var(--primary3-base);
 }
- 
+
 #filter-input {
+    font-size: 1em;
     height: 50%;
     align-self: center;
     background-color: var(--primary2-base);
@@ -37,21 +41,32 @@
 }
 
 #filter {
+    font-size: 1em;
     color: var(--primary-base);
 }
 
-img:hover{
+img:hover {
     scale: 1.03;
 
 }
-.filter-pop{
-  display: flex;
-  gap: 10px;
-  align-items: center;
-    background-color: #f24fb4;
+
+.filter-pop {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--primary2-base);
+    padding-inline: 4px;
 }
 
+.filter-pop span {
+    font-size: 1em;
+}
 
-
-
-
+.filter-pop span:hover {
+    font-size: 1em;
+    color: var(--primary3-base);
+}
+.filter-pop span::selection {
+    background-color: rgba(0, 0, 0, 0);
+}
