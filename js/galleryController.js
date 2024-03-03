@@ -41,7 +41,7 @@ function onImgSelect({ id }) {
     setImg(id)
     const elImageContainer = document.querySelector('.main-image-container')
     elImageContainer.style.display = 'none'
-    renderMeme()
+    onInitEdit()
 }
 
 function onImgSelectRandom(){
@@ -49,7 +49,7 @@ function onImgSelectRandom(){
     setImg(randomId)
     const elImageContainer = document.querySelector('.main-image-container')
     elImageContainer.style.display = 'none'
-    renderMeme()
+    onInitEdit()
 }
 
 

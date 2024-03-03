@@ -18,6 +18,8 @@ var gMeme = {
             textAlign: 'center',
             isAdded: true,
             isChosen: true,
+            isDrag: false,
+            startDragPos: {x: 0, y:0},
             textStartPoint: { x: 220, y: 120 },
             x: 220,
             y: 120,
@@ -34,6 +36,8 @@ var gMeme = {
             textAlign: 'center',
             isAdded: false,
             isChosen: false,
+            isDrag: false,
+            startDragPos: {x: 0, y:0},
             textStartPoint: { x: 220, y: 400 },
             x: 220,
             y: 400,
@@ -53,13 +57,10 @@ function changeTxt(input) {
 function setImg(imgId) {
     gMeme.selectedImgId = imgId
     gMeme.selectedLineIdx = 0
-    gMeme.lines[gMeme.selectedLineIdx].size = 40
+    _resetLine(0)
+    _resetLine(1)
     gMeme.lines[0].isAdded = true
     gMeme.lines[0].isChosen = true
-    gMeme.lines[0].font = 'impact'
-    gMeme.lines[1].isAdded = false
-    gMeme.lines[1].isChosen = false
-    gMeme.lines[1].font = 'impact'
 }
 
 function changeColor(input) {
@@ -155,6 +156,15 @@ function saveMeme() {
     _save()
 }
 
+function setLineDrag(isDragging){
+    gMeme.lines[gMeme.selectedLineIdx].isDrag = isDragging
+}
+
+function moveLine(dx, dy) {
+     gMeme.lines[gMeme.selectedLineIdx].x += dx
+     gMeme.lines[gMeme.selectedLineIdx].y += dy
+}
+
 function _resetLine(index){
     gMeme.lines[index].txt = (index === 0)? 'hey' : 'hello world'
     gMeme.lines[index].size = 40
@@ -164,6 +174,8 @@ function _resetLine(index){
     gMeme.lines[index].textAlign = 'center'
     gMeme.lines[index].isAdded = false
     gMeme.lines[index].isChosen = false
+    gMeme.lines[index].isDrag = false
+    gMeme.lines[index].startDragPos =  {x: 0, y:0}
     gMeme.lines[index].textStartPoint = { x: 220, y: (index === 0)? 120 : 400 }
     gMeme.lines[index].x =  220
     gMeme.lines[index].y =  (index === 0)? 120 : 400
