@@ -4,5 +4,5 @@ footer{
     color: var(--primary3-base);
     justify-content: center;
     padding: 10px;
-    
+    bottom: 0;
 }

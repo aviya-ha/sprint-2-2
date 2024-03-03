@@ -9,3 +9,7 @@
     grid-template-columns: minmax(50% 1fr) minmax(50% 1fr);
     grid-template-rows: 100px 500px;
 }
+
+.the-main-container{
+    height: 100%vh;
+}

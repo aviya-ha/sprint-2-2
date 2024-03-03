@@ -1,0 +1,87 @@
+@media (max-width: 850px) {
+    .main-header {
+        margin-top: 5px;
+        background-color: var(--primary2-base);
+        border-radius: 100px;
+        font-size: 10px;
+        margin-bottom: 5px;
+        grid-template-columns: 50px 1fr;
+        align-items: center;
+
+    }
+
+    .logo {
+        margin-inline-start: 15px;
+    }
+
+    .main-meme-content{
+        display: none;
+    flex-direction: column;
+    }
+    
+    .editor-container {
+        
+        display: flex;
+       
+        font-size: 10px;
+        
+    }
+
+    .main-meme-content .btn {
+      
+        font-size: 1em;
+       
+        padding: 5px;
+    }
+
+
+    .editor-container {
+        display: flex;
+        flex-flow: column;
+        padding: 10px;
+        gap: 5px;
+        /* flex-wrap: wrap; */
+        justify-items: center;
+    }
+
+    
+    .main-image-content {
+        display: flex;
+        grid-column: 1/-1;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-around;
+    }
+    
+    .main-image-nav {
+        font-size: 10px;
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        gap: 5px;
+    }
+    
+    .btn-flexible,
+    .btn-clear {
+        padding-inline: 10px;
+    }
+    
+     
+  img{
+    width: 250px;
+  }
+    
+    
+    .filter-pop {
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background-color: var(--primary2-base);
+        padding-inline: 4px;
+    }
+    
+   
+    
+   
+}
