@@ -9,7 +9,7 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            id: 1,
+            id: 0,
             txt: 'hey',
             size: 40,
             font: 'impact',
@@ -25,7 +25,7 @@ var gMeme = {
 
         },
         {
-            id: 2,
+            id: 1,
             txt: 'hello world',
             size: 40,
             font: 'impact',
@@ -75,6 +75,7 @@ function decreaseFont() {
 }
 
 function addLine() {
+    console.log('gMeme:', gMeme)
     if (gMeme.lines[0].isAdded && gMeme.lines[1].isAdded) return
     var lineIndex = gMeme.lines.findIndex(line => !line.isAdded)
     gMeme.lines[lineIndex].isAdded = true
@@ -93,16 +94,16 @@ function moveDown() {
 
 function deleteLine() {
     var lineIndex = gMeme.lines.findIndex(line => line.isChosen)
-    gMeme.lines[lineIndex].isAdded = false
+    _resetLine(lineIndex)
     switchLine()
 }
 
 function switchLineOnClick(line) {
-    if (line.id === 1) {
+    if (line.id === 0) {
         gMeme.selectedLineIdx = 0
         gMeme.lines[0].isChosen = true
         gMeme.lines[1].isChosen = false
-    } else if (line.id === 2) {
+    } else if (line.id === 1) {
         gMeme.selectedLineIdx = 1
         gMeme.lines[1].isChosen = true
         gMeme.lines[0].isChosen = false
@@ -121,7 +122,15 @@ function switchLine() {
             gMeme.lines[0].isChosen = true
             gMeme.lines[1].isChosen = false
         }
-    } else return
+    } else if (gMeme.lines[0].isAdded === true && gMeme.lines[1].isAdded === false){
+        gMeme.selectedLineIdx = 0
+            gMeme.lines[0].isChosen = true
+            gMeme.lines[1].isChosen = false
+    }else if (gMeme.lines[0].isAdded === false && gMeme.lines[1].isAdded === true){
+        gMeme.selectedLineIdx = 1
+        gMeme.lines[0].isChosen = false
+        gMeme.lines[1].isChosen = true
+    }
 }
 
 function selectFont(elValue) {
@@ -140,6 +149,21 @@ function selectAlignment(elValue) {
 function saveMeme() {
     gMemes.push(gMeme)
     _save()
+}
+
+function _resetLine(index){
+    gMeme.lines[index].txt = (index === 0)? 'hey' : 'hello world'
+    gMeme.lines[index].size = 40
+    gMeme.lines[index].font = 'impact'
+    gMeme.lines[index].colorTxt = '#ffffff'
+    gMeme.lines[index].colorStroke = '#000000'
+    gMeme.lines[index].textAlign = 'center'
+    gMeme.lines[index].isAdded = false
+    gMeme.lines[index].isChosen = false
+    gMeme.lines[index].textStartPoint = { x: 220, y: (index === 0)? 120 : 400 }
+    gMeme.lines[index].x =  220
+    gMeme.lines[index].y =  (index === 0)? 120 : 400
+    gMeme.lines[index].width = 0
 }
 
 function _save() {

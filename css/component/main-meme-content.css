@@ -5,7 +5,7 @@
 }
 
 .canvas-container{
-    width: fit-content;   
+    display: flex;
 }
 
 .main-meme-content .btn{
@@ -27,3 +27,8 @@
     gap: 10px;
     flex-wrap: wrap;
 }
+
+.font-Alignment, .font-family{
+    cursor: pointer;
+}
+

@@ -22,6 +22,16 @@ function renderMeme() {
             if (line.isAdded && !line.isChosen) {
                 drawText(line, line.x, line.y)
                 line.width = gCtx.measureText(line.txt).width
+                if (line.textAlign === 'left'){
+                    line.textStartPoint.x = line.x
+                }
+                if (line.textAlign === 'right'){
+                    line.textStartPoint.x = line.x - line.width                   
+                }
+                if (line.textAlign === 'center'){
+                    line.textStartPoint.x = line.x - line.width / 2                   
+                }
+
             }
             if (line.isAdded && line.isChosen) {
                 const x = line.x
@@ -29,21 +39,21 @@ function renderMeme() {
                 editText(line, x, y)
                 line.width = gCtx.measureText(line.txt).width
                 if (line.textAlign === 'left') {
-                    gCtx.strokeRect(line.x, line.y - line.size, line.width, line.size + 10)
+                    gCtx.strokeRect(line.x -10, line.y - line.size, line.width +20, line.size + 10)
                     line.textStartPoint.x = line.x
-                    line.textStartPoint.y = line.y - line.size
+                    
                 }
 
                 if (line.textAlign === 'right') {
-                    gCtx.strokeRect(line.x - line.width, line.y - line.size, line.width, line.size + 10)
+                    gCtx.strokeRect(line.x - line.width -10, line.y - line.size, line.width +20, line.size + 10)
                     line.textStartPoint.x = line.x - line.width
-                    line.textStartPoint.y = line.y - line.size
+                    
                 }
 
                 if (line.textAlign === 'center') {
-                    gCtx.strokeRect(line.x - line.width / 2, line.y - line.size, line.width, line.size + 10)
+                    gCtx.strokeRect(line.x - line.width / 2 -10, line.y - line.size, line.width +20, line.size + 10)
                     line.textStartPoint.x = line.x - line.width / 2
-                    line.textStartPoint.y = line.y - line.size
+                    
                 }
 
             }
@@ -52,6 +62,7 @@ function renderMeme() {
 }
 
 function drawText(line, x, y) {
+    // gCtx.beginPath()
     const txt = line.txt
     const colorTxt = line.colorTxt
     const colorStroke = line.colorStroke
@@ -73,6 +84,7 @@ function drawText(line, x, y) {
 }
 
 function editText(line, x, y) {
+    // gCtx.beginPath()
     const txt = line.txt
     const colorTxt = line.colorTxt
     const colorStroke = line.colorStroke
@@ -121,6 +133,7 @@ function onDecreaseFont() {
 
 function onAddLine() {
     addLine()
+    document.getElementById('txt').value = ''
     renderMeme()
 }
 
@@ -135,15 +148,16 @@ function onSwitchLine() {
 function onClick(ev) {
     const { offsetX, offsetY } = ev
     var meme = getMeme()
-
+    
     var hoveredLine = meme.lines.find(line => {
-        const { size, width } = line
+        const {size, width } = line
         const { x, y } = line.textStartPoint
         if (line.isAdded) {
             return offsetX >= x && offsetX <= x + width &&
-                offsetY >= y && offsetY <= y + size
+                offsetY <= y && offsetY >= y - size
         }
     })
+    console.log('hoveredLine:', hoveredLine)
     if (hoveredLine) {
         var lestText = hoveredLine.txt
         document.getElementById('txt').value = lestText

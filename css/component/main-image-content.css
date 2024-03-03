@@ -23,7 +23,7 @@
     height: 65%;
     background-color: var(--primary3-base);
 }
-
+ 
 #filter-input {
     height: 50%;
     align-self: center;
@@ -38,6 +38,12 @@
 #filter {
     color: var(--primary-base);
 }
+
+img:hover{
+    scale: 1.03;
+
+}
+
 
 
 
